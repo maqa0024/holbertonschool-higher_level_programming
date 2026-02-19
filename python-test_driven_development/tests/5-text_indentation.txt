@@ -1,27 +1,41 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+=============================
+5-text_indentation.py doctests
+=============================
 
-Quonam modo?
+>>> text_indentation = __import__('5-text_indentation').text_indentation
 
-Utrum igitur tibi litteram videor an totas paginas commovere?
+>>> text_indentation("Hello. How are you? I am fine:")
+Hello.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+I am fine:
+<BLANKLINE>
 
-Non autem hoc:
+>>> text_indentation("Hello.   How are you?     Fine:")
+Hello.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+Fine:
+<BLANKLINE>
 
-igitur ne illud quidem.
+>>> text_indentation("   Hi.   Bye?   End:   ")
+Hi.
+<BLANKLINE>
+Bye?
+<BLANKLINE>
+End:
+<BLANKLINE>
 
-Fortasse id optimum, sed ubi illud:
+>>> text_indentation("   No punctuation here   ")
+No punctuation here
 
-Plus semper voluptatis?
+>>> text_indentation(123)
+Traceback (most recent call last):
+TypeError: text must be a string
 
-Teneo, inquit, finem illi videri nihil dolere.
+>>> text_indentation()
+Traceback (most recent call last):
+TypeError: text_indentation() missing 1 required positional argument: 'text'
 
-Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
-
-Si id dicis, vicimus.
-
-Inde sermone vario sex illa a Dipylo stadia confecimus.
-
-Sin aliud quid voles, postea.
-
-Quae animi affectio suum cuique tribuens atque hanc, quam dico.
-
-Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
