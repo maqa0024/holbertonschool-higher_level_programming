@@ -1,17 +1,39 @@
 #!/usr/bin/python3
-"""Module that defines the MyList class, inheriting from list."""
+"""Module that defines a Rectangle class with width and height."""
 
 
-class MyList(list):
-    """A custom list class that extends the built-in list.
+class Rectangle:
+    """Class that defines a rectangle by width and height."""
 
-    Inherits all list behavior and adds a method to print sorted output
-    without modifying the original list.
-    """
+    def __init__(self, width=0, height=0):
+        """Initialize rectangle with optional width and height."""
+        self.width = width
+        self.height = height
 
-    def print_sorted(self):
-        """Print the list elements sorted in ascending order.
+    @property
+    def width(self):
+        """Retrieve width."""
+        return self.__width
 
-        The original list remains unchanged.
-        """
-        print(sorted(self))
+    @width.setter
+    def width(self, value):
+        """Set width with validation."""
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value < 0:
+            raise ValueError("width must be >= 0")
+        self.__width = value
+
+    @property
+    def height(self):
+        """Retrieve height."""
+        return self.__height
+
+    @height.setter
+    def height(self, value):
+        """Set height with validation."""
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if value < 0:
+            raise ValueError("height must be >= 0")
+        self.__height = value
