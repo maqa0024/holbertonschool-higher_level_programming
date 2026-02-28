@@ -1,0 +1,70 @@
+==========================
+Tests for 1-my_list module
+==========================
+
+Import the class:
+    >>> MyList = __import__('1-my_list').MyList
+
+--- Basic usage ---
+
+Empty list:
+    >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
+
+Single element:
+    >>> my_list = MyList()
+    >>> my_list.append(5)
+    >>> my_list.print_sorted()
+    [5]
+
+Normal unsorted list:
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+Original list is unchanged after print_sorted:
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> print(my_list)
+    [1, 4, 2]
+    >>> my_list.print_sorted()
+    [1, 2, 4]
+    >>> print(my_list)
+    [1, 4, 2]
+
+Already sorted list:
+    >>> my_list = MyList([1, 2, 3])
+    >>> my_list.print_sorted()
+    [1, 2, 3]
+
+List with negative numbers:
+    >>> my_list = MyList([-3, -1, -2])
+    >>> my_list.print_sorted()
+    [-3, -2, -1]
+
+List with duplicate values:
+    >>> my_list = MyList([3, 1, 3, 2, 1])
+    >>> my_list.print_sorted()
+    [1, 1, 2, 3, 3]
+
+List with negative and positive numbers:
+    >>> my_list = MyList([0, -1, 5, -3, 2])
+    >>> my_list.print_sorted()
+    [-3, -1, 0, 2, 5]
+
+MyList inherits from list:
+    >>> issubclass(MyList, list)
+    True
+
+Instance is also a list:
+    >>> my_list = MyList()
+    >>> isinstance(my_list, list)
+    True
