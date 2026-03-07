@@ -1,0 +1,2 @@
+xankendinden gedirem bakiya 
+
