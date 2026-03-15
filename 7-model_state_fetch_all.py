@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Prints the first State object from the database hbtn_0e_6_usa.
+Lists all State objects from the database hbtn_0e_6_usa
+using SQLAlchemy.
 """
 import sys
 from model_state import Base, State
@@ -15,23 +16,24 @@ if __name__ == "__main__":
     db_name = sys.argv[3]
 
     # 2. Create the engine
+    # Format: mysql+mysqldb://user:password@host:port/database
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
             user, passwd, db_name), pool_pre_ping=True
     )
 
-    # 3. Create a configured "Session" class and instance
+    # 3. Create a configured "Session" class
     Session = sessionmaker(bind=engine)
+
+    # 4. Create a session instance
     session = Session()
 
-    # 4. Query only the first State object, sorted by id
-    first_state = session.query(State).order_by(State.id).first()
+    # 5. Query all State objects, sorted by id
+    states = session.query(State).order_by(State.id).all()
 
-    # 5. Display results or "Nothing" if empty
-    if first_state:
-        print("{}: {}".format(first_state.id, first_state.name))
-    else:
-        print("Nothing")
+    # 6. Display results in the required format <id>: <name>
+    for state in states:
+        print("{}: {}".format(state.id, state.name))
 
-    # 6. Close the session
+    # 7. Close the session
     session.close()
